@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Share Tech Mono', monospace; }
+body { background: #000; color: #00ff66; overflow-x: hidden; }
+
+/* Matrix */
+canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.15; }
+
+/* Terminal */
+#terminal { position: fixed; inset: 0; background: #000; display: flex; justify-content: center; align-items: center; z-index: 10000; }
+.terminal-text p { border-right: 2px solid #00ff66; overflow: hidden; white-space: nowrap; animation: type 1s steps(30), blink .5s infinite; }
+@keyframes type { from { width: 0 } to { width: 100% } }
+@keyframes blink { 50% { border-color: transparent } }
+
+/* Nav */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(0,10,0,0.9); border-bottom: 1px solid #00ff66; position: sticky; top: 0; z-index: 100; }
+nav ul { display: flex; list-style: none; gap: 20px; }
+nav a { color: #00ff66; text-decoration: none; font-size: 1rem; transition: .3s; }
+nav a:hover, .active { color: #fff; text-shadow: 0 0 10px #00ff66; }
+
+/* Hero & Glitch */
+.hero { height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.glitch { font-size: 5rem; color: #fff; position: relative; text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff; }
+.glitch::after { content: attr(data-text); position: absolute; left: 2px; text-shadow: -2px 0 red; top: 0; color: #fff; background: #000; overflow: hidden; clip: rect(0,900px,0,0); animation: glitch 2s infinite linear alternate-reverse; }
+@keyframes glitch { 20% { clip: rect(20px, 9999px, 50px, 0); } 80% { clip: rect(80px, 9999px, 100px, 0); } }
+
+/* Buttons */
+.cyber-btn { padding: 12px 30px; border: 1px solid #00ff66; color: #00ff66; text-decoration: none; background: transparent; transition: .3s; cursor: pointer; display: inline-block; margin: 10px; }
+.cyber-btn:hover { background: #00ff66; color: #000; box-shadow: 0 0 20px #00ff66; }
+
+/* Cards & Grid */
+.container { padding: 80px 10%; }
+.section-title { font-size: 2rem; margin-bottom: 40px; border-left: 5px solid #00ff66; padding-left: 15px; }
+.skills-grid, .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.skill-card, .p-card { padding: 30px; border: 1px solid #333; background: rgba(0, 20, 0, 0.4); transition: .3s; }
+.p-card:hover { border-color: #00ff66; transform: translateY(-5px); }
+.bar { height: 10px; background: #111; border: 1px solid #00ff66; margin-top: 10px; }
+.progress { height: 100%; background: #00ff66; width: 0; transition: 1.5s ease-in-out; }
+
+/* Forms */
+.contact-form { max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 20px; }
+input, textarea { background: transparent; border: 1px solid #00ff66; padding: 15px; color: #fff; outline: none; }
